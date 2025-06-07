@@ -1,37 +1,41 @@
 import { FaXTwitter } from "react-icons/fa6";
+import React, {useState} from "react";
+
 import { FaGithub } from "react-icons/fa6";
 import { FaLinkedin } from "react-icons/fa6";
 import { SiFrontendmentor } from "react-icons/si";
 
 export default function Article() {
+ const [showAllContent, setShowAllContent] = useState(false);
+
   const posts = [
     {
       id: 1,
       title: "Balancing Hobbies and Coding: How Hiking and Rock Climbing Help Me Stay Motivated ",
       date: "February 18, 2025",
       content:
-        "Creating a responsive navbar is essential for good UX. You should always ensure your navbar works well on mobile devices by including a hamburger menu and smooth transitions.",
+        "Thoughts on maintaining energy and focus through outdoor activities and exercise. ",
     },
     {
       id: 2,
       title: "Reading for Inspiration: 5 Books that Shaped My Coding Journey ",
       date: "February  15, 2025",
       content:
-        "You can implement dark mode toggling without needing a Tailwind config file by applying your own custom CSS class and toggling it on the document body.",
+        "A few of my books, both fiction and non-fiction, that keep me motivated.",
     },
     {
       id: 3,
       title: "Overcoming Imposter Syndrome as a New Developer",
       date: "February 10, 2025",
       content:
-        "Smooth scrolling improves navigation and user experience by smoothly transitioning between page sections when links are clicked.",
+        "Some tips and personal reflections on dealing with self-doubt when learning to code.",
     },
     {
       id: 4,
       title: "Exploring the World of Responisve Design",
       date: "February 4, 2025",
       content:
-        "Smooth scrolling improves navigation and user experience by smoothly transitioning between page sections when links are clicked.",
+        "The importance of making websites look great on different devices.",
     },
     {
       id: 5,
@@ -67,27 +71,30 @@ export default function Article() {
 
       {/* Blog Posts Section */}
       <section id="blog-posts" className="space-y-12 px-4 border-b-1">
-        <h1 className="text-3xl font-bold  p-0">Latest Articles <span className="font-bold text-blue-400">___</span></h1>
+        <h1 className="text-3xl font-bold p-0">
+          Latest Articles <span className="font-bold text-blue-400">___</span>
+        </h1>
         {posts.map(({ id, title, date, content }) => (
           <article
             key={id}
-            className=" dark-mode:bg-gray-900 rounded-lg shadow-md p-6  border-gray-300 dark-mode:border-gray-900 transition-colors duration-300 hover:shadow-lg"
+            className="dark-mode:bg-gray-900 rounded-lg shadow-md p-6 border-gray-300 dark-mode:border-gray-900 transition-colors duration-300 hover:shadow-lg"
           >
-            <h2 className="text-2xl font-bold mb-2 ">
-              {title}
-            </h2>
-            <p className="text-sm text-gray-500 dark-mode:text-white mb-4">
-              {date}
-            </p>
-           
+            <h2 className="text-2xl font-bold mb-2">{title}</h2>
+            <p className="text-sm text-gray-500 dark-mode:text-white mb-4">{date}</p>
+            {showAllContent && (
+              <p className="text-base text-gray-700 dark-mode:text-gray-200">{content}</p>
+            )}
           </article>
-        
         ))}
-          
-           <h2 className="m-0 pb-6">
-            <a href="#" className="hover:underline text-xl">View all articles</a>
-           </h2>
-          
+
+        <div className="m-0 pb-6">
+          <button
+            onClick={() => setShowAllContent(!showAllContent)}
+            className="hover:underline text-xl text-blue-600 font-medium"
+          >
+            {showAllContent ? "Hide article content" : "View all articles"}
+          </button>
+        </div>
       </section>
       <footer  className="flex  justify-between   text-left px-4 ">
         
