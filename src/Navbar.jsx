@@ -28,20 +28,20 @@ export default function Navbar() {
               onClick={() => setDark(false)}
               className="menu-button px-4 py-1 rounded bg-gray-200 hover:bg-gray-300 transition"
             >
-        <MdOutlineDarkMode />
+         <MdOutlineLightMode />
             </button>
           ) : (
             <button
               onClick={() => setDark(true)}
-              className="menu-button px-4 py-1 rounded bg-gray-200 text-black hover:bg-gray-300 transition"
+              className="menu-button px-4 py-1 rounded bg-gray-100 text-black hover:bg-gray-300 transition"
             >
-          <MdOutlineLightMode />
+         <MdOutlineDarkMode />
             </button>
           )}
 
           <button
             onClick={() => setMenuOpen(!menuOpen)}
-            className="menu-button md:hidden px-3 py-1 rounded bg-gray-200 hover:bg-gray-300 transition"
+            className="menu-button md:hidden px-3 py-1 rounded bg-gray-100 hover:bg-gray-300 transition"
           >
             ☰
           </button>
